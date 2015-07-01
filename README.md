@@ -48,29 +48,14 @@ These are the dependencies added to the Maven project to support the `fabric`
 discovery protocol (see the `pom.xml` for version info):
 
     <dependency>
-        <groupId>org.jboss.amq</groupId>
-        <artifactId>mq-fabric</artifactId>
-        <version>${amq.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>io.fabric8</groupId>
-        <artifactId>fabric-groups</artifactId>
+        <groupId>io.fabric8.mq</groupId>
+        <artifactId>mq-client</artifactId>
         <version>${fabric.version}</version>
     </dependency>
     <dependency>
-        <groupId>io.fabric8</groupId>
-        <artifactId>fabric-zookeeper</artifactId>
+        <groupId>io.fabric8.mq</groupId>
+        <artifactId>mq-discovery</artifactId>
         <version>${fabric.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.core</artifactId>
-        <version>${osgi.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.compendium</artifactId>
-        <version>${osgi.version}</version>
     </dependency>
 
 Setup the examples against a fabric-based network of brokers

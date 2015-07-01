@@ -22,11 +22,6 @@ After the consumer is running, run this command:
 
 	> mvn exec:java
 
-To figure out which container is currently the master from the command line
-is to inspect the logs:
-
-    cat instances/AMQ-East1/data/log/karaf.log | grep mq-fabric
-
 After the example is up and running, and you see JMS messages being logged to the
 producer's console, kill the master broker on the east. You can use the
 `cluster-list` command in the karaf to find out which container is currently
@@ -36,9 +31,9 @@ the master. For example:
     [cluster]                      [masters]                      [slaves]                       [services]
     stats/default
     fusemq/amq-east
-       amq-east-profile           AMQ-East2                     AMQ-East1                     tcp://chirino-retina.chirino:62184
+       amq-east-profile           amq-east2                     amq-east                     tcp://chirino-retina.chirino:62184
     fusemq/amq-west
-       amq-west-profile           AMQ-West2                     AMQ-West1                     tcp://chirino-retina.chirino:62215
+       amq-west-profile           amq-west2                     amq-west                     tcp://chirino-retina.chirino:62215
 
 You can stop the master east container using FMC, or kill the container's process
 in the OS) and watch the producer failover, reconnect and resume sending

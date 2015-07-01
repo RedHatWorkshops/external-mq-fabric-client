@@ -51,25 +51,25 @@ running the FMC. Note that default name of that initial container is
 'root'.
 
 Execute this command from the FMC terminal session to create containers
-named AMQ-East1 and AMQ-East2:
+named amq-east and amq-east2:
 
-    fabric:container-create-child root AMQ-East 2
+    fabric:container-create-child root amq-East 2
 
-Execute this command to create containers named AMQ-West1 and AMQ-West2:
+Execute this command to create containers named amq-west and amq-west2:
 
-    fabric:container-create-child root AMQ-West 2
+    fabric:container-create-child root amq-West 2
 
 Execute this command (all on one line) to provision the East containers
 with a master/slave broker pair identified with the group name
 "amq-east", and networked to the amq-west brokers:
 
-    fabric:mq-create --group amq-east --networks amq-west --networks-username admin --networks-password admin --assign-container AMQ-East1,AMQ-East2 amq-east-profile
+    fabric:mq-create --group amq-east --networks amq-west --networks-username admin --networks-password admin --assign-container amq-east,amq-east2 amq-east-profile
 
 Execute this command (all on one line) to provision the West containers
 with a master/slave broker pair identified with the group name
 "amq-west", and networked to the amq-east brokers:
 
-    fabric:mq-create --group amq-west --networks amq-east --networks-username admin --networks-password admin --assign-container AMQ-West1,AMQ-West2 amq-west-profile
+    fabric:mq-create --group amq-west --networks amq-east --networks-username admin --networks-password admin --assign-container amq-west,amq-west2 amq-west-profile
 
 At this point, our network of brokers -- four instances of ActiveMQ, each
 running in its own container, networked together and with failover -- is up and
@@ -89,9 +89,9 @@ the slaves. Example:
     [cluster]                      [masters]                      [slaves]                       [services]
     stats/default                                                                                
     fusemq/amq-east
-       amq-east-profile           AMQ-East2                     AMQ-East1                     tcp://chirino-retina.chirino:62184
+       amq-east-profile           amq-east2                     amq-east                     tcp://chirino-retina.chirino:62184
     fusemq/amq-west
-       amq-west-profile           AMQ-West1                     AMQ-West2                     tcp://chirino-retina.chirino:62215
+       amq-west-profile           amq-west                      amq-west2                    tcp://chirino-retina.chirino:62215
 
 First lets start a consumer running against a broker running in the `amq-west` group:
 
